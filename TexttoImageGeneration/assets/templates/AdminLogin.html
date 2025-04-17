@@ -1,0 +1,69 @@
+{%extends 'base.html'%}
+{%load static%}
+{% block 'title' %}Admin Login{% endblock %}
+{% block 'admin_login' %}active{% endblock %}
+
+
+{%block contents%}
+<style>
+    body{
+    background-color: ;
+    }
+
+
+
+</style>
+
+
+<!--contact -->
+<div id="contact" class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <br><br>
+        <div class="row justify-content-center">
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 paddimg-right">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <form  action="{% url 'AdminLoginCheck' %}" align="center" method="POST">
+                            {% csrf_token %}
+                            <legend style="font-weight: bolder; text-align: center; color: tomato;">
+                                Admin Login
+                            </legend>
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <input class="form-control" placeholder="Login id" type="text" name="loginid">
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <input class="form-control" placeholder="Password" type="password" name="pswd">
+                                </div>
+                                <!--                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">-->
+                                <!--                                    <input class="form-control" placeholder="Phone" type="text" name="Phone">-->
+                                <!--                                </div>-->
+                                <!--                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">-->
+                                <!--                                    <textarea class="textarea>" placeholder="Message" type="text"-->
+                                <!--                                              name="Message"></textarea>-->
+                                <!--                                </div>-->
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <button class="btn btn-info" href="#">Login</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--end contact-->
+<br>
+
+{%endblock%}

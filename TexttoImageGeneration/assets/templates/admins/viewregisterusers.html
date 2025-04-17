@@ -1,0 +1,56 @@
+{% extends 'admins/adminbase.html'%}
+{% load static %}
+
+<section>
+    <div id="main_slider" class="carousel slide banner-main" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#main_slider" data-slide-to="0" class="active"></li>
+            <li data-target="#main_slider" data-slide-to="1"></li>
+            <li data-target="#main_slider" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                    <div class="row margin">
+                        <p>
+                        <h2 align="center" style="font-weight:bold; color:brown; ">View RegisterUser Details</h2></p>
+                        <table class="table table-bordered bg-light text-dark">
+                            <thead style="color:deeppink;">
+                            <tr>
+                                <th>S.No</th>
+                                <th>Name</th>
+                                <th>Login ID</th>
+                                <th>Mobile</th>
+                                <th>Email</th>
+                                <th>Locality</th>
+                                <th>Status</th>
+                                <th>Activate</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for i in data %}
+                            <tr style="color: Black">
+                                <td>{{forloop.counter}}</td>
+                                <td>{{i.name}}</td>
+                                <td>{{i.loginid}}</td>
+                                <td>{{i.mobile}}</td>
+                                <td>{{i.email}}</td>
+                                <td>{{i.locality}}</td>
+                                <td>{{i.status}}</td>
+
+                                {% if i.status == 'waiting' %}
+                                <td><a class="btn-link" href="/ActivaUsers/?uid={{ i.id }}"
+                                       style="color:DARKBLUE">Activate</a></td>
+                                {% else %}
+                                <td> Activated/<a class="btn-link" href="/DeleteUsers/?uid={{ i.id }}"
+                                       style="color:DARKBLUE">Delete</a></td>
+                                {% endif %}
+                            </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,1 @@
+use python 3.10.2 64 bit one and install all dependancy from requirement.txt
